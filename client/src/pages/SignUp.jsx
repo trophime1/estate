@@ -59,7 +59,7 @@ export default function SignUp() {
       </Link>
     </div>
     {/* {error && <Alert type="danger">{error}</Alert>} */}
-    {error && <p className='text-red-500 mt-5'>email or username already taken</p> }
+    {error && <p className='text-red-500 mt-5'>Email or username already taken</p> }
 
     </div>
   )
