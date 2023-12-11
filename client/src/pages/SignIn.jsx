@@ -44,8 +44,8 @@ export default function SignIn() {
       <h1 className='text-3xl text-center front-semibold my-7'>Sign In</h1>
     <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
       {/* <input type="text" placeholder="UserName" className='border p-3 rounded-lg' id='username' onChange={handleChange}/> */}
-      <input type="email" placeholder="email" className='border p-3 rounded-lg' id='email' onChange={handleChange} />
-      <input type="password" placeholder="password" className='border p-3 rounded-lg' id='password' onChange={handleChange} />
+      <input type="email" placeholder="email" className='border p-3 rounded-lg' id='email' onChange={handleChange} required />
+      <input type="password" placeholder="password" className='border p-3 rounded-lg' id='password' onChange={handleChange} required />
       <button disabled={loading} type='submit' className='bg-blue-500 hover:bg-blue-600 transition duration-20 
       p-3 rounded-lg uppercase '>{loading? 'Loading...' : 'Sign In'}</button>
     </form>
