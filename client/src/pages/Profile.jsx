@@ -2,15 +2,22 @@ import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage'
 import { app } from "../firebase";
+import { updateUserFailure, updateUserSuccess, updateUserStart } from "../redux/user/userSlice";
+import { useDispatch } from "react-redux";
 
 
 export default function Profile() {
-  const {currentUser} = useSelector((state)=>state.user);
+  const {currentUser,loading, error } = useSelector((state)=>state.user);
   const fileRef = useRef(null);
   const [file, setFile] = useState(undefined)
   const [filePerc, setFilePerc] = useState(0)
   const [fileUploadError, setFileUploadError] = useState(false)
   const [formData, setFormData] = useState({})
+  const dispatch = useDispatch()
+
+
+
+
   useEffect(()=>
   {
     if(file)
@@ -42,11 +49,42 @@ export default function Profile() {
     },)
 
   }
+  const handleChange = (e) =>
+  {
+   setFormData({...formData, [e.target.id]: e.target.value}) 
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      dispatch(updateUserStart());
+      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(updateUserFailure(data.message));
+        return;
+      }
+
+      dispatch(updateUserSuccess(data));
+      // setUpdateSuccess(true);
+    } catch (error) {
+      dispatch(updateUserFailure(error.message));
+    }
+  };
+
+
   return (
     <div className="max-w-lg p-3 mx-auto">
       <h1 className='font-bold text-3xl text-center my-7'>Profile</h1>
-      <form onChange={(e)=>setFile(e.target.files[0])} className="flex flex-col gap-4">
-        <input type="file" ref={fileRef} hidden accept="image/*"/>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <input
+        onChange={(e)=>setFile(e.target.files[0])}
+         type="file" ref={fileRef} hidden accept="image/*"/>
         <img onClick={()=> fileRef.current.click()} src={formData.avatar || currentUser.avatar} alt='Profile'
          className="rounded-full w-24 h-24 mt-2 cursor-pointer object-cover self-center"/>
          <p className="text-sm self-center">
@@ -55,19 +93,25 @@ export default function Profile() {
            filePerc > 0 && filePerc < 100 ? (
             <span className="text-green-700" >{`Uploading ${filePerc}%`}</span>) :
             filePerc === 100 ? 
-            (<span className="text-green-700">Image sucessful uploaded!</span>) : (''
-           ) }
+            (<span className="text-green-700">Image sucessful uploaded!</span>) : (' ') }
          </p>
-        <input type="text" placeholder="username" id='username' className="border p-3 rounded-lg"/>
-        <input type="email" placeholder="email" id='email' className="border p-3 rounded-lg"/>
-        <input type="password" placeholder="password" id='password' className="border p-3 rounded-lg"/>
+        <input type="text" placeholder="username" 
+        defaultValue ={currentUser.username}id='username' className="border p-3 rounded-lg"
+        onChange={handleChange}/>
+        <input type="email" placeholder="email" 
+        defaultValue ={currentUser.email}id='email' className="border p-3 rounded-lg"
+        onChange={handleChange}/>
+        <input type="password" placeholder="password" 
+        id='password' className="border p-3 rounded-lg"
+        onChange={handleChange}/>
         <button className="text-white p-3 rounded-lg bg-slate-700 hover:opacity-95
-         disabled:opacity-80 uppercase">update</button>
+         disabled:opacity-80 uppercase">{loading? 'loading...':'update'}</button>
       </form>
       <div className="flex justify-between mt-5"> 
         <span className="text-red-500 cursor-pointer"> Delete Account</span>
         <span className="text-red-500 cursor-pointer"> Sign Out</span>
       </div>
+      <p className="text-red-700 slef-center">{error? error: ' '}</p>
     </div>
   )
 }
