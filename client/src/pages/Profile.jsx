@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage'
 import { app } from "../firebase";
-import { updateUserFailure, updateUserSuccess, updateUserStart } from "../redux/user/userSlice";
+import { updateUserFailure, updateUserSuccess, updateUserStart, deleteUserFailure, deleteUserStart, deleteUserSuccess } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 
 
@@ -14,6 +14,7 @@ export default function Profile() {
   const [fileUploadError, setFileUploadError] = useState(false)
   const [formData, setFormData] = useState({})
   const dispatch = useDispatch()
+  const [updateSuccess ,setUpdateSuccess] = useState(false)
 
 
 
@@ -71,13 +72,31 @@ export default function Profile() {
       }
 
       dispatch(updateUserSuccess(data));
-      // setUpdateSuccess(true);
+      setUpdateSuccess(true);
     } catch (error) {
       dispatch(updateUserFailure(error.message));
     }
   };
 
+  const handleDeleteUser = async ()=>
+  {
+    try{
+      dispatch(deleteUserStart())
+      const res = await fetch(`/api/user/delete/${currentUser._id}`,{
+        method: 'DELETE',
 
+      });
+      const data = await res.json()
+      if (data.success === false ){
+        dispatch(deleteUserFailure(data.message))
+        return;
+      }
+      dispatch(deleteUserSuccess(data))
+    }catch (error) {
+     dispatch(deleteUserFailure(error.message))
+    }
+    
+  };
   return (
     <div className="max-w-lg p-3 mx-auto">
       <h1 className='font-bold text-3xl text-center my-7'>Profile</h1>
@@ -108,10 +127,12 @@ export default function Profile() {
          disabled:opacity-80 uppercase">{loading? 'loading...':'update'}</button>
       </form>
       <div className="flex justify-between mt-5"> 
-        <span className="text-red-500 cursor-pointer"> Delete Account</span>
+        <span onClick={handleDeleteUser} className="text-red-500 cursor-pointer"> Delete Account</span>
         <span className="text-red-500 cursor-pointer"> Sign Out</span>
       </div>
       <p className="text-red-700 slef-center">{error? error: ' '}</p>
+      <p className="text-green-700 slef-center">{updateSuccess? 'User is  updtaed sucessfully': ' '}</p>
+
     </div>
   )
 }
