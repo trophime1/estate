@@ -1,6 +1,7 @@
 import{FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import Logo from '../assets/Logo.png'
 
 export default function Header() {
     const {currentUser} = useSelector(state=> state.user)
@@ -9,11 +10,10 @@ export default function Header() {
         
         <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
             <Link to='/'>
-        <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-        <span className='text-slate-500'>View</span>
-        <span className='text-slate-700'>Home</span>
-
-    </h1>
+        {/* <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'> */}
+        {/* <span className='text-slate-500'>View</span> */}
+        <span className='text-slate-700'> <img className='w-20 h-12 object-cover' src={Logo} alt="" /></span>
+    {/* </h1> */}
     </Link>
     <form className='bg-slate-100 p-3 rounded-lg flex items-center w-24 sm:w-64 '>
         <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none' />
