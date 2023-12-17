@@ -187,7 +187,7 @@ dispatch(signOutUserFailure(error.message))
       </div>
       <p className="text-red-700 slef-center">{error? error: ' '}</p>
       <p className="text-green-700 slef-center">{updateSuccess? 'User is  updtaed sucessfully': ' '}</p>
-      <button onClick={handleShowListings} className="text-white uppercase border rounded-lg bg-slate-700 p-3 text-center cursor-pointer w-full">Show Listings</button>
+      <button onClick={handleShowListings} className="text-green-700 uppercase  w-full">Show Listings</button>
        <p className="text-red-700 text-sm">{showListingsError? 'Error showing listings':''}</p>   
        { userListings && userListings.length > 0 &&
        userListings.map((listing)=><>
