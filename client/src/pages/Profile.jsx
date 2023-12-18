@@ -191,7 +191,8 @@ dispatch(signOutUserFailure(error.message))
        <p className="text-red-700 text-sm">{showListingsError? 'Error showing listings':''}</p>   
        { userListings && userListings.length > 0 &&
        userListings.map((listing)=><>
-       <div key={listing._id} className="border rounded-lg p-3 flex justify-between items-center gap-4">
+       <div
+       key={listing._id} className="border rounded-lg p-3 flex justify-between items-center gap-4">
        <Link to={`/listing/${listing._id}`}>
                 <img
                   src={listing.imageUrls[0]}
