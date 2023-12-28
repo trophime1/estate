@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MdLocationOn } from 'react-icons/md';
+import { FaPhoneAlt } from "react-icons/fa";
 
 export default function ListingItem({ listing }) {
   return (
@@ -21,6 +22,12 @@ export default function ListingItem({ listing }) {
             <MdLocationOn className='h-4 w-4 text-green-700' />
             <p className='text-sm text-gray-600 truncate w-full'>
               {listing.address}
+            </p>
+          </div>
+          <div className='flex items-center gap-1'>
+            <FaPhoneAlt className='h-4 w-4 text-green-700' />
+            <p className='text-sm text-gray-600 truncate w-full'>
+              {listing.phone}
             </p>
           </div>
           <p className='text-sm text-gray-600 line-clamp-2'>

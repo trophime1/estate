@@ -9,10 +9,10 @@ import {
   FaBath,
   FaBed,
   FaChair,
-  FaMapMarkedAlt,
   FaMapMarkerAlt,
   FaParking,
   FaShare,
+  FaPhoneAlt
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
 
@@ -60,7 +60,7 @@ export default function Listing() {
         <div>
           <Swiper navigation>
             {listing.imageUrls.map((url) => (
-              <SwiperSlide key={url}>
+              <SwiperSlide key={url._id}>
                 <div
                   className='h-[550px]'
                   style={{
@@ -99,7 +99,9 @@ export default function Listing() {
             <p className='flex items-center mt-6 gap-2 text-slate-600  text-sm'>
               <FaMapMarkerAlt className='text-green-700' />
               {listing.address}
+              <FaPhoneAlt className='text-green-700'/> {listing.phone}
             </p>
+            
             <div className='flex gap-4'>
               <p className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
                 {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
@@ -136,7 +138,7 @@ export default function Listing() {
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
               </li>
             </ul>
-            {currentUser && listing.userRef !== currentUser._id && !contact && (
+            {currentUser && listing.userRef !== currentUser._id  && !contact || !currentUser &&   (
               <button
                 onClick={() => setContact(true)}
                 className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
@@ -146,6 +148,7 @@ export default function Listing() {
             )}
             {contact && <Contact listing={listing} />}
           </div>
+          
         </div>
       )}
     </main>
