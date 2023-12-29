@@ -95,7 +95,10 @@ export const createListing = async (req, res, next) => {
       const order = req.query.order || 'desc';
   
       const listings = await Listing.find({
-        name: { $regex: searchTerm, $options: 'i' },
+        $or:[
+          {name : {$regex : searchTerm ,$options:'i'}},
+          {address : {$regex : searchTerm ,$options:'i'}},
+        ],
         offer,
         furnished,
         parking,

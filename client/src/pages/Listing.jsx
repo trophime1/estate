@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 import 'swiper/css/bundle';
 import {
   FaBath,
@@ -12,7 +13,8 @@ import {
   FaMapMarkerAlt,
   FaParking,
   FaShare,
-  FaPhoneAlt
+  FaPhoneAlt,
+  FaWhatsapp
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
 
@@ -63,11 +65,8 @@ export default function Listing() {
               <SwiperSlide key={index}>
                 <img
                 src={url}
-                  className='h-[550px]'
-                  style={{
-                    // background: `url(${url}) center no-repeat`,
-                    backgroundSize: 'cover',
-                  }}
+                  className='h-[550px] w-full rounded-lg object-contain mt-5'
+                  
                 />
               </SwiperSlide>
             ))}
@@ -99,10 +98,11 @@ export default function Listing() {
                 : listing.regularPrice.toLocaleString('en-US')}
               {listing.type === 'rent' && ' / month'}
             </p>
-            <p className='flex items-center mt-6 gap-2 text-slate-600  text-sm'>
+            <p className='flex items-center mt-6 gap-4 text-slate-600  text-sm'>
               <FaMapMarkerAlt className='text-green-700' />
               {listing.address}
-              <FaPhoneAlt className='text-green-700'/> {listing.phone}
+               <FaPhoneAlt className='text-green-700'/> {listing.phone}
+               <Link to={`https://wa.me/${listing.phone}`} className='flex gap-2' ><FaWhatsapp className='text-green-700 text-2xl '/> Lets chat</Link>
             </p>
             
             <div className='flex gap-4'>
@@ -141,7 +141,7 @@ export default function Listing() {
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
               </li>
             </ul>
-            {currentUser && listing.userRef !== currentUser._id  && !contact || !currentUser &&   (
+            {currentUser && listing.userRef !== currentUser._id  && !contact || !currentUser && (
               <button
                 onClick={() => setContact(true)}
                 className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'

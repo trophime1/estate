@@ -4,6 +4,9 @@ import { Link } from "react-router-dom"
 export default function Contact({listing}) {
     const [landlord, setlandord] = useState(null)
     const [message, setMessage] = useState('')
+    console.log('====================================');
+    console.log(landlord);
+    console.log('====================================');
     const onChange = (e) =>{
         setMessage(e.target.value)
     }
@@ -23,6 +26,7 @@ export default function Contact({listing}) {
         fetchLandlord();
 
     },[listing.userRef])
+    
   return (
     <>
     {landlord && (
@@ -39,6 +43,7 @@ export default function Contact({listing}) {
         className="bg-slate-700 uppercase text-white p-3 rounded-lg text-center hover:opacity-95">
          Send message
         </Link>
+       
         </div>
     )}
     </>
