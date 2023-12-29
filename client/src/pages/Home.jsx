@@ -71,20 +71,21 @@ export default function Home() {
       <Swiper navigation>
         {offerListings &&
           offerListings.length > 0 &&
-          offerListings.map((listing) => (
-            <>
-            <SwiperSlide>
+          offerListings.map((listing,index) => (
+            
+            <SwiperSlide key={index}>
               
-              <div
+              <img 
+              src={listing.imageUrls[0]}
                 style={{
-                  background: `url(${listing.imageUrls[0]}) center no-repeat`,
-                  backgroundSize: 'cover',
+                  width:'92%',
+                  objectFit:'cover',
+                  height:'30rem',
+                  margin:'0px auto'
                 }}
                 className='h-[500px]'
-                key={listing._id}
-              ></div>
+              />
             </SwiperSlide>
-            </>
           ))}
       </Swiper>
 
