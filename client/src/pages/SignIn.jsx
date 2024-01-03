@@ -51,7 +51,7 @@ export default function SignIn() {
       <button disabled={loading} type='submit' className='bg-blue-500 hover:bg-blue-600 transition duration-20 
       p-3 rounded-lg uppercase '>{loading? 'Loading...' : 'Sign In'}
       </button>
-      <button className='text-end text-blue-700 underline '>Forget a password?</button>
+      <button  onClick={()=>navigate('/forget')} className='text-end text-blue-700 underline '>Forget a password?</button>
       <OAuth/>
     </form>
     <div className='flex gap-2 mt-5'>
