@@ -3,7 +3,6 @@ import {Link, useNavigate} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { signinStart, signinFail ,signinSuccess } from '../redux/user/userSlice'
 import OAuth from '../components/OAuth';
-import { FcGoogle } from "react-icons/fc";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({})
