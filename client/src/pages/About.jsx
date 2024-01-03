@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import image1 from '../assets/jules.jpg'
+import image2 from '../assets/trophime.jpg'
 import { FaFacebook, FaWhatsapp, FaInstagram   } from "react-icons/fa";
 
 export default function About() {
@@ -52,14 +53,20 @@ export default function About() {
     
     </div>
     <div className="flex flex-col">
-      <img src="/team/john.jpg" alt=" image" className="rounded-full shadow-md"/>
+    <div className='items-center'>
+      <img src={image2} alt=" image" className="max-h-40 rounded-full p-3"/>
+      </div>
       <div>
-      <h4 className='font-semibold '>Trophime KARASISI</h4>
-    </div>
-    
-    </div>
-    
+      <h4 className='font-semibold text-2xl'>Trophime KARASISI</h4>
+      <p className='text-sm'>Chief Technology Officer and Co-Founder </p>
+      <div className='flex justify-between my-3'>
+        <Link to='https://web.facebook.com/profile.php?id=100008436885107'><FaFacebook className='text-2xl' /></Link>
+        <Link to='https://www.instagram.com/trophime250'><FaInstagram className='text-2xl' /></Link>
+       <Link to='https://wa.me/250786866091'> <FaWhatsapp className='text-2xl' /></Link> 
 
+      </div>
+    </div> 
+    </div>
   </div>
     </div>
   )
