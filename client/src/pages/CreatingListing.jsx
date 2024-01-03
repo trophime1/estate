@@ -160,7 +160,7 @@ export default function CreatingListing() {
         <input className="rounded-lg p-3 border" id='name' type="text" placeholder='Name' 
             maxLength='62' minLength='10' required onChange={handleChange} value={formData.name} />
         <textarea className="rounded-lg p-3 border" id='description' type="text" placeholder='description' 
-             required onChange={handleChange} value={formData.description} />
+              onChange={handleChange} value={formData.description} />
         <input className="rounded-lg p-3 border"  id='address'type="text" placeholder='address' 
              required onChange={handleChange} value={formData.address}/>
         <input className="rounded-lg p-3 border"  id='phone'type="text" placeholder='Phone number' 

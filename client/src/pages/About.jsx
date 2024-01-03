@@ -1,5 +1,7 @@
-
+import { Link } from 'react-router-dom';
 import image1 from '../assets/jules.jpg'
+import { FaFacebook, FaWhatsapp, FaInstagram   } from "react-icons/fa";
+
 export default function About() {
   return (
     <div className="">
@@ -32,11 +34,20 @@ export default function About() {
 
 </div>
   <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl text-center'>who we are? </h1>
-  <div className="flex gap-4 p-3 justify-around my-10  ">
+  <div className="flex gap-4 p-3 justify-around my-10">
     <div className="flex flex-col ">
-      <img src={image1} alt=" image" className="max-h-40 rounded-full"/>
+      <div className='items-center'>
+      <img src={image1} alt=" image" className="max-h-40 rounded-full p-3"/>
+      </div>
       <div>
-      <h4 className='font-semibold '>Jules Sano KABAYIZA</h4>
+      <h4 className='font-semibold text-2xl'>Jules Sano KABAYIZA</h4>
+      <p className='text-sm'>Chief Operations Officer and Co-Founder</p>
+      <div className='flex justify-between my-3'>
+        <Link to='https://www.facebook.com/edwin.jules.9?mibextid=2JQ9oc'><FaFacebook className='text-2xl' /></Link>
+        <Link to='https://www.instagram.com/kab_j.u.l.e.s?igsh=YzVkODRmOTdmMw%3D%3D&utm_source=qr'><FaInstagram className='text-2xl' /></Link>
+       <Link to='https://wa.me/250786992184'> <FaWhatsapp className='text-2xl' /></Link> 
+
+      </div>
     </div>
     
     </div>
