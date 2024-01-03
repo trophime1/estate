@@ -1,5 +1,5 @@
 
-import image1 from '../assets/Jules.jpg'
+import image1 from '../assets/jules.jpg'
 export default function About() {
   return (
     <div className="">
