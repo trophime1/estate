@@ -84,7 +84,7 @@ export default function Home() {
                   height:'30rem',
                   margin:'0px auto'
                 }}
-                className='h-[500px]'
+                className='h-[500px] rounded-lg'
               />
             </SwiperSlide>
           ))}

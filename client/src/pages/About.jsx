@@ -1,5 +1,5 @@
 
-
+import image1 from '../assets/Jules.jpg'
 export default function About() {
   return (
     <div className="">
@@ -34,7 +34,7 @@ export default function About() {
   <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl text-center'>who we are? </h1>
   <div className="flex gap-4 p-3 justify-around my-10  ">
     <div className="flex flex-col ">
-      <img src="/team/john.jpg" alt=" image" className="rounded-full shadow-md"/>
+      <img src={image1} alt=" image" className="max-h-40 rounded-full"/>
       <div>
       <h4 className='font-semibold '>Jules Sano KABAYIZA</h4>
     </div>
