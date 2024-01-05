@@ -1,5 +1,9 @@
+import { useState } from "react"
 
 export default function Recovery() {
+  const [Password , setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  
   return (
     <div className='p-3 max-w-lg mx-auto'>
     <h1 className='text-3xl text-center front-semibold my-7'>Reset a Password</h1>

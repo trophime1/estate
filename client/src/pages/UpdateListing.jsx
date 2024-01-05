@@ -193,7 +193,6 @@ export default function CreateListing() {
             placeholder='Description'
             className='border p-3 rounded-lg'
             id='description'
-            required
             onChange={handleChange}
             value={formData.description}
           />
