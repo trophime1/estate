@@ -8,11 +8,12 @@ import { MdOutlineMarkEmailRead } from "react-icons/md";
 
 export default function Footer() {
   return (
-  <div className="flex flex-col min-h-screen">
-  <main className="flex-1"> {/* Add any content here */}</main>
+    <div className='h-80'>
+  <div className="flex flex-col  min-h-full">
+  <main className="flex-1"> </main>
   <footer className="text-center bg-gray-200 py-4">
     <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
-          <Link to=''>
+          <Link to=''> 
        <span className='text-slate-700'> <img className='w-20 h-12 object-cover' src={Logo} alt="" /></span>
    </Link>
    <h1 className='font-bold uppercase'>contact us:</h1>
@@ -28,6 +29,7 @@ export default function Footer() {
     
        </div>
   </footer>
+</div>
 </div>
   )
 }
