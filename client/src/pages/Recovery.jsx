@@ -10,7 +10,7 @@ export default function Recovery() {
   <form  className='flex flex-col gap-4'>
     <input type="email" placeholder="New Password" className='border p-3 rounded-lg' id='email'  required />
     <input type="email" placeholder="Confirm Password" className='border p-3 rounded-lg' id='email'  required />
-    <button className='bg-blue-700 p-3 rounded-lg uppercase text-white '>Verify Email</button>
+    <button className='bg-blue-700 p-3 rounded-lg uppercase text-white '>Reset</button>
     
   </form>
   </div>

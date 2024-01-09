@@ -102,7 +102,7 @@ export default function Listing() {
               <FaMapMarkerAlt className='text-green-700' />
               {listing.address}
                <FaPhoneAlt className='text-green-700'/> {listing.phone}
-               <Link to={`https://wa.me/${listing.phone}`} className='flex gap-2' ><FaWhatsapp className='text-green-700 text-2xl '/> Lets chat</Link>
+               <Link to={`https://wa.me/${listing.phone}`} className='flex gap-2' target='blank' ><FaWhatsapp className='text-green-700 text-2xl '/> Lets chat</Link>
             </p>
             
             <div className='flex gap-4'>

@@ -33,7 +33,7 @@ export default function ListingItem({ listing }) {
             </p>
           </div>
           <div className='flex items-center gap-1'>
-          <Link to={`https://wa.me/${listing.phone}`} className='flex gap-2' >
+          <Link to={`https://wa.me/${listing.phone}`} className='flex gap-2' target='blank' >
             <FaWhatsapp className='text-green-700 text-2xl '/> Lets chat</Link>
           </div>
           <p className='text-sm text-gray-600 line-clamp-2'>

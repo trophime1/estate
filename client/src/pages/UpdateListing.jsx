@@ -207,9 +207,9 @@ export default function CreateListing() {
           />
             <input
             type='text'
-            placeholder='phone_number'
+            placeholder='phone_number without 0'
             className='border p-3 rounded-lg'
-            id='250 ... ... ...'
+            id='phone_number'
             required
             onChange={handleChange}
             value={formData.phone}

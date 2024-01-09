@@ -163,7 +163,7 @@ export default function CreatingListing() {
               onChange={handleChange} value={formData.description} />
         <input className="rounded-lg p-3 border"  id='address'type="text" placeholder='address' 
              required onChange={handleChange} value={formData.address}/>
-        <input className="rounded-lg p-3 border"  id='phone'type="text" placeholder='250 ... ... ... ' 
+        <input className="rounded-lg p-3 border"  id='phone'type="text" placeholder='phone_number without 0'
              required onChange={handleChange} value={formData.phone}/>
 
              <div className='flex gap-6 flex-wrap'>
