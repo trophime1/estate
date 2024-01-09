@@ -12,6 +12,7 @@ import Listing from "./pages/Listing"
 import Search from "./pages/Search"
 import ForgetPassword from "./pages/ForgetPassword"
 import Recovery from "./pages/Recovery"
+import Footer from "./components/Footer"
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
 
     </Route>
   </Routes>
+  <Footer/>
   </BrowserRouter>
   )
   
