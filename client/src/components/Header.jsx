@@ -34,7 +34,7 @@ export default function Header() {
     {/* </h1> */}
     </Link>
     <form onSubmit={handleSubmit} className='bg-slate-100 p-3 rounded-lg flex items-center w-24 sm:w-64 '>
-        <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-24 sm:w-64'
+        <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-30 sm:w-64'
         value={searchTerm}
         onChange={(e)=>setSearchTerm(e.target.value)} />
         <button>
@@ -43,19 +43,19 @@ export default function Header() {
     </form>
     <ul className="flex gap-4 cursor-pointer">
             <Link to='/'>
-        <li className='hidden sm:inline text-slate-700 hover:underline font-bold'>
+        <li className='hidden text-sm sm:inline text-slate-700 hover:underline font-bold'>
             Home
         </li>
             </Link>
             <Link to='/about'>
-        <li  className='hidden sm:inline text-slate-700 hover:underline font-bold'>
+        <li  className='text-sm sm:inline text-slate-700 hover:underline font-bold'>
             About
         </li>
             </Link>
         <Link to='/profile'>
             {currentUser ? (
                 <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt='profile'/>
-                ): (<li className=' text-slate-700 hover:underline font-bold'>Sign in </li>
+                ): (<li className='tetxt-sm text-slate-700 hover:underline font-bold'>Sign in </li>
                  )}
                 </Link>
     </ul>
