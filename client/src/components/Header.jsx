@@ -33,8 +33,8 @@ export default function Header() {
         <span className='text-slate-700'> <img className='w-20 h-12 object-cover' src={Logo} alt="" /></span>
     {/* </h1> */}
     </Link>
-    <form onSubmit={handleSubmit} className='bg-slate-100 p-3 rounded-lg flex items-center w-24 sm:w-64 '>
-        <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-30 sm:w-64'
+    <form onSubmit={handleSubmit} className='bg-slate-100 p-3 rounded-lg flex items-center w-30 sm:w-64 '>
+        <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-24 sm:w-64'
         value={searchTerm}
         onChange={(e)=>setSearchTerm(e.target.value)} />
         <button>
