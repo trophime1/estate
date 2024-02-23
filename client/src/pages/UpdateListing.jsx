@@ -207,7 +207,7 @@ export default function CreateListing() {
           />
             <input
             type='text'
-            placeholder='phone_number without 0'
+            placeholder='phone_number (25078888888)'
             className='border p-3 rounded-lg'
             id='phone_number'
             required
@@ -272,7 +272,7 @@ export default function CreateListing() {
                 type='number'
                 id='bedrooms'
                 min='1'
-                max='10'
+                max='100'
                 required
                 className='p-3 border border-gray-300 rounded-lg'
                 onChange={handleChange}
@@ -285,7 +285,7 @@ export default function CreateListing() {
                 type='number'
                 id='bathrooms'
                 min='1'
-                max='10'
+                max='100'
                 required
                 className='p-3 border border-gray-300 rounded-lg'
                 onChange={handleChange}
@@ -298,7 +298,7 @@ export default function CreateListing() {
                 type='number'
                 id='regularPrice'
                 min='50'
-                max='10000000'
+                max='10000000000'
                 required
                 className='p-3 border border-gray-300 rounded-lg'
                 onChange={handleChange}
@@ -317,7 +317,7 @@ export default function CreateListing() {
                   type='number'
                   id='discountPrice'
                   min='0'
-                  max='10000000'
+                  max='10000000000'
                   required
                   className='p-3 border border-gray-300 rounded-lg'
                   onChange={handleChange}

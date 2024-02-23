@@ -196,19 +196,19 @@ export default function CreatingListing() {
              </div>
              <div className='flex gap-4 flex-wrap'>
               <div className='flex gap-2 items-center'>
-                <input type="number" id='bedrooms' min='1' max='10' 
+                <input type="number" id='bedrooms' min='1' max='100' 
                 onChange={handleChange} value={formData.bedrooms} required
                 className='p-3 border border-gray-300 rounded-lg' />
                 <p>Bedrooms</p>
               </div>
               <div className='flex gap-2 items-center'>
-                <input type="number" id='bathrooms' min='1' max='10' 
+                <input type="number" id='bathrooms' min='1' max='100' 
                 onChange={handleChange} value={formData.bathrooms} required
                 className='p-3 border border-gray-300 rounded-lg' />
                 <p>Bathrooms</p>
               </div>
               <div className='flex gap-2 items-center'>
-                <input type="number" id='regularPrice' min='50' max='1000000' required
+                <input type="number" id='regularPrice' min='50' max='1000000000' required
                 onChange={handleChange} value={formData.regularPrice} className='p-3 border border-gray-300 rounded-lg' />
                 <p>Regular Price</p>
                 <span className="text-xs">(rwf / month)</span>
@@ -216,7 +216,7 @@ export default function CreatingListing() {
               {formData.offer &&(
 
               <div className='flex gap-2 items-center'>
-                <input type="number" id='discountPrice' min='0' max='1000000' required
+                <input type="number" id='discountPrice' min='0' max='1000000000' required
                 onChange={handleChange} value={formData.discountPrice} className='p-3 border border-gray-300 rounded-lg' />
                 <p>Discount price</p>
                 <span className="text-xs">(rwf / month)</span>
