@@ -211,7 +211,7 @@ export default function CreatingListing() {
                 <input type="number" id='regularPrice' min='50' max='1000000000' required
                 onChange={handleChange} value={formData.regularPrice} className='p-3 border border-gray-300 rounded-lg' />
                 <p>Regular Price</p>
-                <span className="text-xs">(rwf / month)</span>
+                <span className="text-xs">($ / month)</span>
               </div>
               {formData.offer &&(
 
@@ -219,7 +219,7 @@ export default function CreatingListing() {
                 <input type="number" id='discountPrice' min='0' max='1000000000' required
                 onChange={handleChange} value={formData.discountPrice} className='p-3 border border-gray-300 rounded-lg' />
                 <p>Discount price</p>
-                <span className="text-xs">(rwf / month)</span>
+                <span className="text-xs">($ / month)</span>
               </div>
               )}
              </div>
