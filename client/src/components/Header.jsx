@@ -1,7 +1,7 @@
 import{FaSearch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import Logo from '../assets/Logo.png'
+import Logo from '../assets/logo2.png'
 import { useState, useEffect } from 'react';
 
 
