@@ -1,35 +1,46 @@
-
-import { Link} from 'react-router-dom';
-import Logo from '../assets/Logo.png';
-import { FaXTwitter,FaInstagram  } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
+import Logo from '../assets/logo2.png';
+import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 
-
 export default function Footer() {
-  return (
-    <div className='h-96'>
-  <div className="flex flex-col  min-h-full">
-  <main className="flex-1"> </main>
-  <footer className="text-center bg-gray-200 py-4">
-    <div className="flex  justify-between items-center max-w-6xl mx-auto p-3">
-          <Link to=''> 
-       <span className='text-slate-700'> <img className='w-20 h-12 object-cover' src={Logo} alt="" /></span>
-   </Link>
-   <h1 className=' hidden sm:inline font-bold uppercase'>contact us:</h1>
+  const currentYear = new Date().getFullYear(); // Get the current year
 
-       <Link to='https://twitter.com/ViewHome2024' target='blank' className=''> <FaXTwitter  className='text-2xl ' /> 
-       </Link>
-       <Link to='https://www.facebook.com/profile.php?id=61554594932656' target='blank'> <FaFacebook className='text-2xl ' />
-       </Link>
-       <Link to='https://www.instagram.com/viewhome2024/' target='blank'> <FaInstagram  className='text-2xl ' />
-       </Link>
-       <Link to={`mailto:viewhome2024@gmail.com`}> <MdOutlineMarkEmailRead className='text-2xl' /> </Link>
- <Link to='https://wa.me/250786992184' target='blank' className='font-bold bg-green-500 p-3 rounded-lg'>Direct contact us !!</Link>
-    
-       </div>
-  </footer>
-</div>
-</div>
+  return (
+    <footer className='bg-gray-100 text-white py-8'>
+      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+        <div className="flex items-center space-x-4">
+          <Link to='/'>
+            <img className='w-24 h-16 object-cover' src={Logo} alt="Evently Logo" />
+          </Link>
+          <p className='text-gray-900'>&copy; {currentYear} ViewHomeBase. All Rights Reserved.</p>
+        </div>
+        
+        <div className="flex space-x-6 mt-4 sm:mt-0">
+          <Link to='https://twitter.com/ViewHome2024' target='_blank'>
+            <FaXTwitter className='text-2xl hover:text-blue-400 transition duration-300 text-black' />
+          </Link>
+          <Link to='https://www.facebook.com/profile.php?id=61554594932656' target='_blank'>
+            <FaFacebook className='text-2xl hover:text-blue-600 transition duration-300 text-black' />
+          </Link>
+          <Link to='https://www.instagram.com/viewhome2024/' target='_blank'>
+            <FaInstagram className='text-2xl hover:text-pink-400 transition duration-300 text-black' />
+          </Link>
+          <Link to='mailto:viewhome2024@gmail.com'>
+            <MdOutlineMarkEmailRead className='text-2xl hover:text-green-400 transition duration-300 text-black' />
+          </Link>
+        </div>
+      </div>
+      
+      <div className="mt-6 text-center">
+        <Link 
+          to='https://wa.me/250786992184' 
+          target='_blank' 
+          className='font-bold bg-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-600 transition duration-300'>
+          Direct Contact Us!
+        </Link>
+      </div>
+    </footer>
   )
 }
